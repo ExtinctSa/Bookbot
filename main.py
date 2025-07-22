@@ -1,4 +1,4 @@
-from stats import (all_symbols, num_words)
+from stats import (all_symbols, num_words, sorted_symbols)
 relative_path = "books/frankenstein.txt"
 def get_book_text(relative_path):
     with open(relative_path) as file:
@@ -7,7 +7,14 @@ def main():
     text = get_book_text(relative_path)
     word_count = num_words(text)
     symbol_count = all_symbols(text)
-    print(f"{word_count} words found in the document", symbol_count)
-
+    sorted_symbol = sorted_symbols(symbol_count)
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {relative_path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for symbol_dict in sorted_symbol:
+        print(f"{symbol_dict['char']}: {symbol_dict['num']}")
+    print("============= END ===============")
 
 main()
