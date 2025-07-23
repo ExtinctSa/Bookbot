@@ -1,5 +1,10 @@
+import sys
 from stats import (all_symbols, num_words, sorted_symbols)
-relative_path = "books/frankenstein.txt"
+if len(sys.argv) > 1:
+    relative_path = sys.argv[1]
+else:
+    print('Usage: "python main.py <path_to_book>"')
+    sys.exit[1]
 def get_book_text(relative_path):
     with open(relative_path) as file:
         return file.read()
