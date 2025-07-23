@@ -3,8 +3,9 @@ from stats import (all_symbols, num_words, sorted_symbols)
 if len(sys.argv) > 1:
     relative_path = sys.argv[1]
 else:
-    print('Usage: "python main.py <path_to_book>"')
-    sys.exit[1]
+    print("'Usage: python3 main.py <path_to_book>'")
+    sys.exit(1)
+    
 def get_book_text(relative_path):
     with open(relative_path) as file:
         return file.read()
